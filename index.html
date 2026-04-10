@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scube Solutions | Digital Transformation Partner</title>
+  <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)" />
+  <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin />
+  <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap)" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#ffffff;
+      --bg-soft:#f8fafc;
+      --panel:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --border:#e2e8f0;
+      --accent:#2563eb;
+      --accent-dark:#1d4ed8;
+      --shadow:0 10px 30px rgba(15, 23, 42, 0.08);
+      --radius:18px;
+      --container:1180px;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.65;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    img, svg{
+      display:block;
+      max-width:100%;
+    }
+
+    .container{
+      width:min(100% - 40px, var(--container));
+      margin-inline:auto;
+    }
+
+    section{
+      padding:96px 0;
+    }
+
+    .section-kicker{
+      display:inline-block;
+      font-size:0.8rem;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:var(--accent);
+      font-weight:700;
+      margin-bottom:14px;
+    }
+
+    .section-title{
+      font-size:clamp(2rem, 4vw, 3rem);
+      line-height:1.1;
+      margin-bottom:18px;
+    }
+
+    .section-desc{
+      color:var(--muted);
+      font-size:1.05rem;
+      max-width:700px;
+    }
+
+    .section-head{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto 56px;
+    }
+
+    /* Navbar */
+    .navbar{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,0.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+
+    .nav-wrap{
+      height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:1.25rem;
+      font-weight:800;
+    }
+
+    .brand-mark{
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      background:linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color:#fff;
+      display:grid;
+      place-items:center;
+      font-weight:800;
+      box-shadow:var(--shadow);
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:28px;
+      font-weight:500;
+      color:var(--muted);
+    }
+
+    .nav-links a:hover{
+      color:var(--accent);
+    }
+
+    /* Hero */
+    .hero{
+      padding:72px 0 96px;
+      background:
+        radial-gradient(circle at top right, rgba(37,99,235,0.10), transparent 28%),
+        linear-gradient(to bottom, #ffffff, #f8fbff);
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr 0.95fr;
+      gap:48px;
+      align-items:center;
+      min-height:calc(100vh - 76px - 72px);
+    }
+
+    .hero-title{
+      font-size:clamp(2.7rem, 5vw, 4.5rem);
+      line-height:1.02;
+      letter-spacing:-0.03em;
+      margin-bottom:18px;
+    }
+
+    .hero-text p{
+      color:var(--muted);
+      font-size:1.1rem;
+      max-width:620px;
+      margin-bottom:30px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 24px;
+      border-radius:12px;
+      font-weight:600;
+      transition:0.25s ease;
+      border:1px solid transparent;
+    }
+
+    .btn-primary{
+      background:var(--accent);
+      color:#fff;
+      box-shadow:0 10px 20px rgba(37,99,235,0.18);
+    }
+
+    .btn-primary:hover{
+      background:var(--accent-dark);
+      transform:translateY(-1px);
+    }
+
+    .btn-secondary{
+      background:#fff;
+      border-color:var(--border);
+      color:var(--text);
+    }
+
+    .btn-secondary:hover{
+      border-color:var(--accent);
+      color:var(--accent);
+    }
+
+    .hero-card{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:30px;
+    }
+
+    .hero-visual{
+      aspect-ratio:1 / 1;
+      border-radius:24px;
+      background:
+        linear-gradient(135deg, rgba(37,99,235,0.12), rgba(255,255,255,0.3)),
+        linear-gradient(180deg, #eef5ff, #f8fbff);
+      position:relative;
+      overflow:hidden;
+      display:grid;
+      place-items:center;
+    }
+
+    .hero-bubble{
+      position:absolute;
+      border-radius:50%;
+      background:rgba(37,99,235,0.12);
+      filter:blur(2px);
+    }
+
+    .hero-bubble.one{ width:120px; height:120px; top:10%; left:10%; }
+    .hero-bubble.two{ width:180px; height:180px; bottom:8%; right:6%; }
+    .hero-bubble.three{ width:70px; height:70px; top:18%; right:14%; }
+
+    .dashboard{
+      width:min(420px, 92%);
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      padding:24px;
+      position:relative;
+      z-index:2;
+    }
+
+    .dashboard-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:20px;
+    }
+
+    .dashboard-title{
+      font-weight:700;
+      font-size:1rem;
+    }
+
+    .status-pill{
+      font-size:0.78rem;
+      padding:8px 12px;
+      border-radius:999px;
+      background:#ecfdf5;
+      color:#15803d;
+      font-weight:700;
+    }
+
+    .mini-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:14px;
+    }
+
+    .mini-card{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:16px;
+      background:#fff;
+    }
+
+    .mini-card strong{
+      display:block;
+      font-size:1.2rem;
+      margin-bottom:4px;
+    }
+
+    .mini-card span{
+      color:var(--muted);
+      font-size:0.92rem;
+    }
+
+    /* About */
+    .about{
+      background:#fff;
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:56px;
+      align-items:center;
+    }
+
+    .about-copy .section-title,
+    .contact-copy .section-title{
+      text-align:left;
+    }
+
+    .about-copy .section-desc{
+      text-align:left;
+      max-width:none;
+    }
+
+    .about-copy p{
+      color:var(--muted);
+      margin-bottom:18px;
+      font-size:1.05rem;
+    }
+
+    .about-features{
+      display:grid;
+      gap:18px;
+      margin-top:28px;
+    }
+
+    .feature-item{
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+    }
+
+    .feature-icon{
+      width:52px;
+      height:52px;
+      flex:0 0 52px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      background:#eff6ff;
+      color:var(--accent);
+      border:1px solid #dbeafe;
+    }
+
+    .feature-item h4{
+      font-size:1.06rem;
+      margin-bottom:4px;
+    }
+
+    .feature-item p{
+      margin:0;
+      color:var(--muted);
+      font-size:0.98rem;
+    }
+
+    .about-visual{
+      background:linear-gradient(180deg, #f8fbff, #f8fafc);
+      border:1px solid var(--border);
+      border-radius:28px;
+      padding:30px;
+      box-shadow:var(--shadow);
+    }
+
+    .about-visual-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:16px;
+    }
+
+    .visual-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:22px;
+      min-height:140px;
+      box-shadow:0 8px 24px rgba(15,23,42,0.04);
+    }
+
+    .visual-card .feature-icon{
+      margin-bottom:16px;
+    }
+
+    .visual-card h4{
+      margin-bottom:8px;
+    }
+
+    .visual-card p{
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    .visual-card.wide{
+      grid-column:1 / -1;
+    }
+
+    /* Services */
+    .services{
+      background:var(--bg-soft);
+    }
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:24px;
+    }
+
+    .service-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:28px;
+      box-shadow:0 8px 20px rgba(15,23,42,0.04);
+      transition:0.25s ease;
+    }
+
+    .service-card:hover{
+      transform:translateY(-4px);
+      box-shadow:var(--shadow);
+      border-color:#cbd5e1;
+    }
+
+    .service-icon{
+      width:56px;
+      height:56px;
+      border-radius:18px;
+      display:grid;
+      place-items:center;
+      background:#eff6ff;
+      color:var(--accent);
+      margin-bottom:18px;
+    }
+
+    .service-card h3{
+      font-size:1.2rem;
+      margin-bottom:10px;
+    }
+
+    .service-card p{
+      color:var(--muted);
+      font-size:0.98rem;
+    }
+
+    /* Stats */
+    .stats{
+      background:#0f172a;
+      color:#fff;
+    }
+
+    .stats-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
+    }
+
+    .stat-card{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px;
+      padding:34px 28px;
+      text-align:center;
+    }
+
+    .stat-card h3{
+      font-size:3rem;
+      line-height:1;
+      margin-bottom:10px;
+      color:#fff;
+    }
+
+    .stat-card p{
+      color:#cbd5e1;
+      font-size:1rem;
+    }
+
+    /* Why us */
+    .why{
+      background:#fff;
+    }
+
+    .why-grid{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0, 1fr));
+      gap:24px;
+    }
+
+    .why-card{
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:28px;
+      background:#fff;
+      text-align:center;
+      box-shadow:0 8px 20px rgba(15,23,42,0.04);
+    }
+
+    .why-card .service-icon{
+      margin:0 auto 18px;
+    }
+
+    .why-card h3{
+      font-size:1.12rem;
+      margin-bottom:10px;
+    }
+
+    .why-card p{
+      color:var(--muted);
+      font-size:0.97rem;
+    }
+
+    /* CTA */
+    .cta{
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,0.18), transparent 25%),
+        linear-gradient(135deg, #1d4ed8, #0f172a);
+      color:#fff;
+      text-align:center;
+    }
+
+    .cta-box{
+      max-width:820px;
+      margin:0 auto;
+    }
+
+    .cta .section-title{
+      color:#fff;
+      margin-bottom:16px;
+    }
+
+    .cta .section-desc{
+      color:#dbeafe;
+      margin:0 auto 28px;
+    }
+
+    .cta .btn-primary{
+      background:#fff;
+      color:#0f172a;
+      box-shadow:none;
+    }
+
+    .cta .btn-primary:hover{
+      background:#eff6ff;
+    }
+
+    /* Contact */
+    .contact{
+      background:#fff;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:0.95fr 1.05fr;
+      gap:40px;
+      align-items:start;
+    }
+
+    .contact-copy{
+      padding-top:10px;
+    }
+
+    .contact-copy p{
+      color:var(--muted);
+      margin-bottom:18px;
+    }
+
+    .contact-points{
+      display:grid;
+      gap:16px;
+      margin-top:26px;
+    }
+
+    .contact-point{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      padding:16px 18px;
+      border:1px solid var(--border);
+      border-radius:18px;
+      background:#fff;
+    }
+
+    .contact-form{
+      background:var(--bg-soft);
+      border:1px solid var(--border);
+      border-radius:26px;
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .field.full{
+      grid-column:1 / -1;
+    }
+
+    .field label{
+      font-size:0.95rem;
+      font-weight:600;
+    }
+
+    .field input,
+    .field textarea{
+      width:100%;
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:#fff;
+      padding:15px 16px;
+      font:inherit;
+      color:var(--text);
+      outline:none;
+      transition:0.2s ease;
+    }
+
+    .field input:focus,
+    .field textarea:focus{
+      border-color:var(--accent);
+      box-shadow:0 0 0 4px rgba(37,99,235,0.10);
+    }
+
+    .field textarea{
+      min-height:150px;
+      resize:vertical;
+    }
+
+    .form-status{
+      margin-top:14px;
+      font-size:0.95rem;
+      color:var(--muted);
+    }
+
+    /* Footer */
+    .footer{
+      padding:28px 0;
+      border-top:1px solid var(--border);
+      background:#fff;
+    }
+
+    .footer-wrap{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px){
+      .services-grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+      }
+
+      .why-grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 860px){
+      .nav-wrap{
+        flex-direction:column;
+        height:auto;
+        padding:16px 0;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        padding-top:40px;
+      }
+
+      .hero-grid{
+        min-height:auto;
+      }
+
+      .about-visual{
+        order:2;
+      }
+
+      .stats-grid{
+        grid-template-columns:1fr;
+      }
+
+      .footer-wrap{
+        flex-direction:column;
+        text-align:center;
+      }
+    }
+
+    @media (max-width: 680px){
+      section{
+        padding:78px 0;
+      }
+
+      .nav-links{
+        gap:16px;
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .hero-title{
+        font-size:2.4rem;
+      }
+
+      .services-grid,
+      .why-grid,
+      .form-grid,
+      .about-visual-grid{
+        grid-template-columns:1fr;
+      }
+
+      .field.full{
+        grid-column:auto;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+      }
+
+      .stat-card h3{
+        font-size:2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-wrap">
+      <a href="#home" class="brand">
+        <span class="brand-mark">S</span>
+        <span>Scube Solutions</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <span class="section-kicker">Digital Transformation Partner</span>
+          <h1 class="hero-title">We Build, Scale & Grow Your Business Digitally</h1>
+          <p>Cloud solutions, software development, and digital marketing tailored for modern businesses.</p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Get Started</a>
+            <a href="#services" class="btn btn-secondary">Our Services</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-bubble one"></div>
+            <div class="hero-bubble two"></div>
+            <div class="hero-bubble three"></div>
+
+            <div class="dashboard">
+              <div class="dashboard-top">
+                <div class="dashboard-title">Business Growth Dashboard</div>
+                <div class="status-pill">Online</div>
+              </div>
+              <div class="mini-grid">
+                <div class="mini-card">
+                  <strong>AWS</strong>
+                  <span>Cloud Ready</span>
+                </div>
+                <div class="mini-card">
+                  <strong>50+</strong>
+                  <span>Projects Delivered</span>
+                </div>
+                <div class="mini-card">
+                  <strong>20+</strong>
+                  <span>Clients Served</span>
+                </div>
+                <div class="mini-card">
+                  <strong>5+</strong>
+                  <span>Industries</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <span class="section-kicker">About Us</span>
+          <h2 class="section-title">Empowering Businesses Through Technology</h2>
+          <p>Scube Solutions is a forward-thinking technology partner helping businesses thrive in the digital age. We combine deep technical expertise with strategic business acumen to deliver solutions that drive growth and efficiency.</p>
+          <p>From startups to enterprises, we work closely with clients to understand their challenges and craft tailored solutions that meet their unique needs.</p>
+
+          <div class="about-features">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15A4.5 4.5 0 0 0 6.75 19.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848A5.25 5.25 0 0 0 5.34 10.53 4.502 4.502 0 0 0 2.25 15Z"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Cloud Expertise</h4>
+                <p>Multi-cloud proficiency across AWS, Azure and GCP.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25M6.75 6.75 1.5 12l5.25 5.25M14.25 3.75 9.75 20.25"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Software Development</h4>
+                <p>Custom solutions built using modern technologies.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m3 17 6-6 4 4 7-8M14 7h6v6"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Business Growth</h4>
+                <p>Strategic digital initiatives that drive measurable results.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-visual">
+          <div class="about-visual-grid">
+            <div class="visual-card">
+              <div class="feature-icon">
+                <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15A4.5 4.5 0 0 0 6.75 19.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848A5.25 5.25 0 0 0 5.34 10.53 4.502 4.502 0 0 0 2.25 15Z"/>
+                </svg>
+              </div>
+              <h4>Cloud First</h4>
+              <p>Architecture built for reliability and scale.</p>
+            </div>
+
+            <div class="visual-card">
+              <div class="feature-icon">
+                <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25M6.75 6.75 1.5 12l5.25 5.25M14.25 3.75 9.75 20.25"/>
+                </svg>
+              </div>
+              <h4>Modern Build</h4>
+              <p>Development focused on clean and scalable solutions.</p>
+            </div>
+
+            <div class="visual-card wide">
+              <div class="feature-icon">
+                <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m3 17 6-6 4 4 7-8M14 7h6v6"/>
+                </svg>
+              </div>
+              <h4>Growth Driven</h4>
+              <p>Technology decisions aligned with long-term business outcomes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Services</span>
+          <h2 class="section-title">Our Services</h2>
+          <p class="section-desc">Comprehensive solutions to transform operations and accelerate growth.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">
+              <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25M6.75 6.75 1.5 12l5.25 5.25M14.25 3.75 9.75 20.25"/>
+              </svg>
+            </div>
+            <h3>Software Development</h3>
+            <p>Custom applications built with modern frameworks and clean architecture for scalable performance.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15A4.5 4.5 0 0 0 6.75 19.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848A5.25 5.25 0 0 0 5.34 10.53 4.502 4.502 0 0 0 2.25 15Z"/>
+              </svg>
+            </div>
+            <h3>Cloud Solutions</h3>
+            <p>Expert architecture and implementation across AWS, Azure, and GCP to leverage the power of cloud computing.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.5h16.5v12.75H3.75zM8.25 20.25h7.5"/>
+              </svg>
+            </div>
+            <h3>Website Development</h3>
+            <p>Responsive websites that convert visitors into customers.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 17l6-6 4 4 8-8M15 7h6v6"/>
+              </svg>
+            </div>
+            <h3>Digital Marketing</h3>
+            <p>Data-driven SEO, content strategy, and social marketing.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0 4-4m-4 4-4-4M5.25 15v2.25A2.25 2.25 0 0 0 7.5 19.5h9a2.25 2.25 0 0 0 2.25-2.25V15"/>
+              </svg>
+            </div>
+            <h3>Cloud Migration</h3>
+            <p>Seamless migration to the cloud with zero downtime.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3h6m-7.5 8.25h12A2.25 2.25 0 0 0 20.25 17.25V6.75A2.25 2.25 0 0 0 18 4.5H6A2.25 2.25 0 0 0 3.75 6.75v10.5A2.25 2.25 0 0 0 6 19.5Z"/>
+              </svg>
+            </div>
+            <h3>IT Consulting</h3>
+            <p>Strategic guidance aligning IT investments with business goals.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="container stats-grid">
+        <div class="stat-card">
+          <h3>50+</h3>
+          <p>Projects Delivered</p>
+        </div>
+        <div class="stat-card">
+          <h3>20+</h3>
+          <p>Happy Clients</p>
+        </div>
+        <div class="stat-card">
+          <h3>5+</h3>
+          <p>Industries Served</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="why" id="why-us">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Why Us</span>
+          <h2 class="section-title">Why Businesses Choose Us</h2>
+          <p class="section-desc">We combine technical excellence with a client-first approach to deliver exceptional outcomes.</p>
+        </div>
+
+        <div class="why-grid">
+          <article class="why-card">
+            <div class="service-icon">
+              <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5v10.5H3.75zM8.25 10.5h7.5"/>
+              </svg>
+            </div>
+            <h3>Affordable Pricing</h3>
+            <p>Competitive rates without compromising quality. Flexible pricing models to suit your budget and project needs.</p>
+          </article>
+
+          <article class="why-card">
+            <div class="service-icon">
+              <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3.75 18.75 6v4.5c0 4.125-2.625 7.875-6.75 9-4.125-1.125-6.75-4.875-6.75-9V6L12 3.75Z"/>
+              </svg>
+            </div>
+            <h3>End-to-End Support</h3>
+            <p>From initial consultation to post-launch maintenance, we’re here for you every step of the way.</p>
+          </article>
+
+          <article class="why-card">
+            <div class="service-icon">
+              <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 9V4.5H9M15 4.5h4.5V9M19.5 15v4.5H15M9 19.5H4.5V15"/>
+              </svg>
+            </div>
+            <h3>Scalable Solutions</h3>
+            <p>Solutions designed to grow with your business and adapt to changing requirements.</p>
+          </article>
+
+          <article class="why-card">
+            <div class="service-icon">
+              <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15A4.5 4.5 0 0 0 6.75 19.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848A5.25 5.25 0 0 0 5.34 10.53 4.502 4.502 0 0 0 2.25 15Z"/>
+              </svg>
+            </div>
+            <h3>Cloud Expertise</h3>
+            <p>Deep experience with major cloud providers — AWS, Azure, and Google Cloud Platform.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container cta-box">
+        <h2 class="section-title">Let’s Build Your Next Digital Solution</h2>
+        <p class="section-desc">Ready to transform your business? Let’s talk about how we can bring your vision to life.</p>
+        <a href="#contact" class="btn btn-primary">Contact Us</a>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <span class="section-kicker">Contact</span>
+          <h2 class="section-title">Let's Get In Touch</h2>
+          <p>Tell us about your project and we’ll help build the right digital solution for you.</p>
+
+          <div class="contact-points">
+            <div class="contact-point">
+              <div class="feature-icon">
+                <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 7.5v9A2.25 2.25 0 0 1 19.5 18.75h-15A2.25 2.25 0 0 1 2.25 16.5v-9A2.25 2.25 0 0 1 4.5 5.25h15A2.25 2.25 0 0 1 21.75 7.5Zm0 .75-8.69 5.214a2.25 2.25 0 0 1-2.32 0L2.25 8.25"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Email</strong>
+                <p>info@scube.solutions</p>
+              </div>
+            </div>
+
+            <div class="contact-point">
+              <div class="feature-icon">
+                <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 4.5c0 9.113 7.387 16.5 16.5 16.5h2.25a.75.75 0 0 0 .75-.75v-3.818a.75.75 0 0 0-.514-.712l-4.423-1.474a.75.75 0 0 0-.78.187l-1.962 1.962a13.5 13.5 0 0 1-6.367-6.367l1.962-1.962a.75.75 0 0 0 .187-.78L8.38 2.264A.75.75 0 0 0 7.668 1.75H3a.75.75 0 0 0-.75.75V4.5Z"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Phone</strong>
+                <p>+91 81250 73790</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form id="contactForm" method="POST" action="[script.google.com](https://script.google.com/macros/s/AKfycbx5THlVT3wKRXOmhfgGv81PjaQbjmkYmBREwYOETlK6/exec)">
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="Name" placeholder="John Doe" required>
+              </div>
+
+              <div class="field">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="Phone" placeholder="+91 81250 73790" required>
+              </div>
+
+              <div class="field full">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="Email" placeholder="john@example.com" required>
+              </div>
+
+              <div class="field full">
+                <label for="message">Message</label>
+                <textarea id="message" name="Message" placeholder="Tell us about your project..." required></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            <div class="form-status" id="formStatus"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-wrap">
+      <div>© 2025 Scube Solutions – All rights reserved.</div>
+      <div>Cloud • Software • Growth</div>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      formStatus.textContent = 'Sending message...';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form)
+        });
+
+        if (response.ok) {
+          formStatus.textContent = 'Message sent successfully.';
+          form.reset();
+        } else {
+          formStatus.textContent = 'Submission failed. Please try again.';
+        }
+      } catch (error) {
+        formStatus.textContent = 'Network error. Please try again later.';
+      }
+    });
+  </script>
+</body>
+</html>
